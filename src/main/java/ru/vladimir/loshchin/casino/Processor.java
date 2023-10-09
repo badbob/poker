@@ -108,23 +108,23 @@ public class Processor {
     }
     
     public Card imageToCard(BufferedImage img) throws IOException {
-        ImageIO.write(img, "png", new File("first.png"));
+//        ImageIO.write(img, "png", new File("first.png"));
         
         var wbfirst = binary(img);
-        ImageIO.write(wbfirst, "png", new File("binary.png"));
+//        ImageIO.write(wbfirst, "png", new File("binary.png"));
         
         wbfirst = crop(wbfirst);
-        ImageIO.write(wbfirst, "png", new File("wbfirst.png"));
+//        ImageIO.write(wbfirst, "png", new File("wbfirst.png"));
 
         var top = splitTop(wbfirst);
         if (Objects.isNull(top)) {
         	return null;
         }
         
-        ImageIO.write(top, "png", new File("top.png"));
+//        ImageIO.write(top, "png", new File("top.png"));
 
         var bottom = splitBottom(wbfirst);
-        ImageIO.write(bottom, "png", new File("bottom.png"));
+//        ImageIO.write(bottom, "png", new File("bottom.png"));
         
 
         var bottomMatrix = ImgUtil.imgToMatrix(bottom);
@@ -136,7 +136,7 @@ public class Processor {
     public List<Card> parse(BufferedImage img) throws IOException {
     	var cards = img.getSubimage(143, 585, 400, 90);
         
-        ImageIO.write(cards, "png", new File("cards.png"));
+//        ImageIO.write(cards, "png", new File("cards.png"));
         
         var first = sliceCard(cards, 0);
         
@@ -145,22 +145,22 @@ public class Processor {
         
         var second = sliceCard(cards, 1);
         result.add(imageToCard(second));
-        ImageIO.write(second, "png", new File("second.png"));
+//        ImageIO.write(second, "png", new File("second.png"));
 
         var third = sliceCard(cards, 2);
         result.add(imageToCard(third));
-        ImageIO.write(third, "png", new File("third.png"));
+//        ImageIO.write(third, "png", new File("third.png"));
         
         var fourth = sliceCard(cards, 3);
         if (Objects.nonNull(fourth)) {
-            ImageIO.write(fourth, "png", new File("fourth.png"));
+//            ImageIO.write(fourth, "png", new File("fourth.png"));
             Card card = imageToCard(fourth);
             if (card != null) {
                 result.add(card);
                 
                 var fifth = sliceCard(cards, 4);
                 if (Objects.nonNull(fifth)) {
-                    ImageIO.write(fifth, "png", new File("fifth.png"));
+//                    ImageIO.write(fifth, "png", new File("fifth.png"));
                     card = imageToCard(fifth);
                     if (card != null) {
                     	result.add(card);
