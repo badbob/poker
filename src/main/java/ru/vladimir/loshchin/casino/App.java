@@ -23,7 +23,7 @@ public class App {
 	        List<Card> result = proc.parse(img);
 	        StringBuilder sb = new StringBuilder();
 	        result.forEach(c -> sb.append(c.toString()));
-	        out.println(sb.toString());
+	        out.println(args[0] + " - " + sb.toString());
         } else {
         	System.err.println("Image file should be specified");
         }
